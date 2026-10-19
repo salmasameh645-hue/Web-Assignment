@@ -3,26 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Table with Search & Sort</title>
+  <title>Data Table - Studio</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      margin: 0;
-      padding: 40px;
-    }
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #ffffff;
+    .data-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: var(--surface);
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      margin-bottom: 20px;
-      color: #ac0303;
-      text-align: center;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     .controls {
       display: flex;
@@ -31,83 +22,77 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-    input[type="text"] {
-      padding: 10px;
+    .controls input[type="text"] {
+      padding: 10px 14px;
       width: 60%;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
     }
     .sort-btns {
       display: flex;
       gap: 10px;
     }
-    button {
-      padding: 10px 15px;
-      background-color: hsla(0, 75%, 24%, 0.877);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: hwb(0 4% 69%);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: hsl(0, 75%, 24%);
-      color: white;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Data Table</h2>
-    
-    <div class="controls">
-      <input type="text" id="searchInput" placeholder="Search by name or city...">
-      <div class="sort-btns">
-        <button id="sortNameBtn">Sort by Name</button>
-        <button id="sortAgeBtn">Sort by Age</button>
+  <header class="site-header">
+    <a class="logo" href="index.html">Studio</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="components.html">Components</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="data.html" class="active">Data</a></li>
+        <li><a href="validation.html">Validation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="data-container">
+      <h2>Data Table with Search & Sort</h2>
+      
+      <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search by name or city...">
+        <div class="sort-btns">
+          <button id="sortNameBtn" class="btn">Sort by Name</button>
+          <button id="sortAgeBtn" class="btn">Sort by Age</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>City</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
       </div>
     </div>
+  </main>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>City</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <!-- Data will be populated by JavaScript -->
-      </tbody>
-    </table>
-  </div>
+  <footer class="site-footer" style="margin-top: 48px;">
+    <div class="container">&copy; 2026 Teal UI System. All rights reserved.</div>
+  </footer>
 
   <script>
-    // Array of objects (Persons / Data)
     const people = [
       { name: "Salma Sameh", age: 20, city: "Cairo" },
       { name: "Omar Ahmed", age: 22, city: "Alexandria" },
       { name: "Habiba Mahmoud", age: 21, city: "Giza" },
       { name: "Ali Hamed", age: 23, city: "Mansoura" },
-      { name: "Karim Tarek", age: 19, city: "Aswan" }
+      { name: "Karim Tarek", age: 19, city: "Aswan" },
+      { name: "Nourhan Ezzat", age: 24, city: "Luxor" },
     ];
 
     const tableBody = document.getElementById('tableBody');
@@ -115,7 +100,6 @@
     const sortNameBtn = document.getElementById('sortNameBtn');
     const sortAgeBtn = document.getElementById('sortAgeBtn');
 
-    // Function to display data in the table
     function displayTable(dataArray) {
       tableBody.innerHTML = '';
       dataArray.forEach(person => {
@@ -129,10 +113,8 @@
       });
     }
 
-    // Initial display
     displayTable(people);
 
-    // Search functionality (Filters while typing instantly)
     searchInput.addEventListener('input', function() {
       const searchTerm = searchInput.value.toLowerCase();
       const filteredData = people.filter(person => 
@@ -142,18 +124,15 @@
       displayTable(filteredData);
     });
 
-    // Sort by Name
     sortNameBtn.addEventListener('click', function() {
       const sortedData = [...people].sort((a, b) => a.name.localeCompare(b.name));
       displayTable(sortedData);
     });
 
-    // Sort by Age
     sortAgeBtn.addEventListener('click', function() {
       const sortedData = [...people].sort((a, b) => a.age - b.age);
       displayTable(sortedData);
     });
   </script>
-
 </body>
 </html>
