@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact - Website</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="logo" href="index.html">Studio</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="components.html">Components</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="data.html" class="active">Data</a></li>
+        <li><a href="validation.html">Validation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<main class="container">
+<section class="section">
+<h1>Contact Us</h1>
+<p class="hero-desc">Please fill out the form below with all required inputs:</p>
+</section>
+
+<section class="section" style="max-width: 600px; margin: 0 auto 48px auto;">
+<div class="card">
+<form>
+<div style="margin-bottom: 20px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">1. Full Name</label>
+<input type="text" placeholder="Enter your full name" style="width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit;">
+</div>
+
+<div style="margin-bottom: 20px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">2. Email</label>
+<input type="email" placeholder="name@example.com" style="width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit;">
+</div>
+
+<div style="margin-bottom: 20px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">3. Age</label>
+<input type="number" placeholder="Enter a number" style="width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit;">
+</div>
+
+<div style="margin-bottom: 20px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">4. Date</label>
+<input type="date" style="width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit;">
+</div>
+
+<div style="margin-bottom: 20px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">5. Gender</label>
+<div style="display: flex; gap: 20px; color: var(--text);">
+<label style="display: flex; align-items: center; gap: 6px; cursor: pointer;"><input type="radio" name="gender"> Female</label>
+<label style="display: flex; align-items: center; gap: 6px; cursor: pointer;"><input type="radio" name="gender"> Male</label>
+</div>
+</div>
+
+<div style="margin-bottom: 20px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">6. Interest</label>
+<div style="display: flex; flex-direction: column; gap: 8px; color: var(--text);">
+<label style="display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> Design</label>
+<label style="display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> Art</label>
+<label style="display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> Coding</label>
+</div>
+</div>
+
+<div style="margin-bottom: 20px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">7. Country</label>
+<select style="width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit;">
+<option>Egypt</option>
+<option>Saudi Arabia</option>
+<option>UAE</option>
+<option>Other</option>
+</select>
+</div>
+
+<div style="margin-bottom: 24px;">
+<label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text);">8. Message</label>
+<textarea rows="4" placeholder="Write your detailed message here..." style="width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit; resize: vertical;"></textarea>
+</div>
+
+<button type="submit" class="btn">Submit Form</button>
+</form>
+</div>
+</section>
+</main>
+
+<footer class="site-footer" style="margin-top: 48px;">
+<div class="container">&copy; 2026 Teal UI System. All rights reserved.</div>
+</footer>
+</body>
+</html>
